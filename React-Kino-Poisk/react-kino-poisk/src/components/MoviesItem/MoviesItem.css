@@ -1,0 +1,65 @@
+.movies__item{
+    font-family: "Ubuntu Sans", sans-serif;
+    display: flex;
+    width: min-content;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movies__item-poster{
+    position: relative;
+}
+
+.movies__item-poster__icon{
+    height: 50px;
+    position: absolute;
+    top:0px;
+    background:rgb(255, 238, 0);
+    padding:10px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.movies__item-poster__image{
+    width: 200px;
+    height: 300px;
+    border-radius: 20px;
+}
+
+.movies__item-title{
+    color:white;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 700;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.movie__item-add-button{
+    display: block;
+    font-family: "Ubuntu Sans", sans-serif;
+    font-weight: 700;
+    padding:10px;
+    color:black;
+    border: none;
+    background: rgb(255, 238, 0);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+
+.movie__item-add-button__icon{
+    width: 30px;
+}
+.movie__item-add-button:hover{
+    background: rgb(255, 246, 120);
+}
+
+@media screen and (max-width:700px) {
+    .movies__item-poster__image{
+        width: 150px;
+        height: 226px;
+    }
+}

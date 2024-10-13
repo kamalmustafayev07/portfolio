@@ -1,0 +1,11 @@
+.movies{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:40px;
+}
+
+.error-header,.loading-header,.search-error-header{
+    color:white;
+}

@@ -1,0 +1,146 @@
+.favorites-container{
+    background: #313131;
+    height: min-content;
+    border-radius: 20px;
+    padding:40px;
+    width: 800px;
+}   
+
+.favorites__movies-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+    font-family: "Ubuntu Sans", sans-serif;
+}
+
+.favorites__header{
+    color:white;
+}
+
+.favorites__empty-text{
+    color:white;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+
+.favorites__movies{
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns:  auto auto auto auto;
+    justify-content: center;
+    gap: 60px;
+
+}
+
+.favorites__movies-item{
+    display: flex;
+    width: min-content;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movies-item__poster{
+    width: 75px;
+    height: 111.5px;
+    margin-bottom: -2px;
+}
+
+.movies-item__title{
+    color:white;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.movies-item__delete-button{
+    padding:10px;
+    background: red;
+    color:white;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+}
+
+.movies-item__delete-button:hover{
+    background: rgb(255, 67, 67);
+}
+
+.favorites__save-button{
+    padding:10px 40px;
+    background:rgb(255, 238, 0);
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.favorites__save-button:hover{
+    background: rgb(255, 246, 120);
+}
+
+
+.favorites__watch-button{
+    text-decoration: none;
+    color:white;
+    width: 135px;
+    text-align: center;
+    padding:10px 40px;
+    background:rgb(0, 119, 255);
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.favorites__watch-button:hover{
+    background: rgb(84, 164, 255);
+}
+
+@media screen and (max-width:990px) {
+    .favorites-container{
+        min-width: min-content;
+    }  
+}
+
+@media screen and (max-width:700px){
+    .favorites__header{
+        font-size: 15px;
+    }
+
+    .favorites-container{
+        padding:30px;
+    }
+    
+    .favorites__empty-text{
+        font-size: 10px;
+    }
+
+    .favorites__save-button{
+        padding:5px 15px;
+    }
+
+    .movies-item__title{
+        font-size: 10px;
+    }
+
+    .favorites__movies-container{
+        gap:15px;
+    }
+
+    .favorites__movies{
+        gap:10px;
+    }
+
+    .movies-item__delete-button{
+        padding: 5px;
+        font-size: 10px;
+    }
+
+    .favorites__watch-button{
+        padding:5px 15px;
+        width: min-content;
+    }
+}

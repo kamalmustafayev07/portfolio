@@ -1,0 +1,26 @@
+.main-container{
+    display: flex;
+    padding:20px 100px;
+    justify-content: space-around;
+    gap:30px;
+}
+
+
+@media screen and (max-width:700px) and (min-width:540px) {
+    .main-container{
+        padding:20px 100px;
+    }
+}
+
+@media screen and (max-width:500px){
+    .main-container{
+        padding:20px 50px;
+
+    }
+}
+
+@media  screen and (max-width:360px) {
+    .main-container{
+        padding:20px;
+    }
+}
