@@ -2,6 +2,7 @@ const cors = require('cors');
 const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser')
+const productsPath = path.join(path, '../products.json');
 
 const HOST = process.env.PORT || 3000;
 
@@ -14,7 +15,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the Store API! Use /products to get the product list.');
 });
 
-fs.readFile('../products.json', 'utf8', (err, data) => {
+fs.readFile(path, 'utf8', (err, data) => {
     if (!err) {
         app.get('/products', (req, res) => {
             let products = JSON.parse(data);
