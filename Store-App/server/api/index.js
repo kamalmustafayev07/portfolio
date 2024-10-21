@@ -2,6 +2,7 @@ const cors = require('cors');
 const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser')
+const path = require('path'); 
 const productsPath = path.join(path, '../products.json');
 
 const HOST = process.env.PORT || 3000;
