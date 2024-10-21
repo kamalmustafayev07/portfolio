@@ -3,7 +3,7 @@ const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const HOST = 3000;
+const HOST = process.env.PORT || 3000;
 
 const app = express();
 
