@@ -18,7 +18,9 @@ app.get('/', (req, res) => {
 fs.readFile(path, 'utf8', (err, data) => {
     if (!err) {
         app.get('/products', (req, res) => {
+            console.log('im in there')
             let products = JSON.parse(data);
+            console.log(products);
             let { limit, offset } = req.query;
             limit = parseInt(limit);
             offset = parseInt(offset);
