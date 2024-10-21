@@ -16,6 +16,9 @@ app.get('/', (req, res) => {
 });
 
 fs.readFile(path, 'utf8', (err, data) => {
+    if(err){
+        console.log(err);
+    }
     if (!err) {
         app.get('/products', (req, res) => {
             console.log('im in there')
