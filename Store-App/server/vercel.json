@@ -11,12 +11,5 @@
       "src": "/(.*)",
       "dest": "server.js"
     }
-  ],
-  "static": [
-    {
-      "src": "/products.json",
-      "dest": "/products.json"
-    }
   ]
 }
-

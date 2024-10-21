@@ -2,6 +2,8 @@ const cors = require('cors');
 const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
+const productsFilePath = path.join(__dirname, 'public/products.json');
 
 const HOST = 3000;
 
@@ -10,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-fs.readFile('./products.json', 'utf8', (err, data) => {
+fs.readFile(productsFilePath , 'utf8', (err, data) => {
     
     if (!err) {
         app.get('/products', (req, res) => {
