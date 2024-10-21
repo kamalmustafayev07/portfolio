@@ -10,8 +10,11 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the Store API! Use /products to get the product list.');
+});
+
 fs.readFile('./products.json', 'utf8', (err, data) => {
-    
     if (!err) {
         app.get('/products', (req, res) => {
             let products = JSON.parse(data);
@@ -26,15 +29,14 @@ fs.readFile('./products.json', 'utf8', (err, data) => {
             res.json({ products: paginatedProducts, response: true });
         });
 
-        app.get('/products/name/:search',(req,res)=>{
+        app.get('/products/name/:search', (req, res) => {
             let products = JSON.parse(data);
-            let searchingTitle=req.params.search;
-            products=products.filter((item)=>item.title.includes(searchingTitle));
-            if(products.length!=0){
+            let searchingTitle = req.params.search;
+            products = products.filter((item) => item.title.includes(searchingTitle));
+            if (products.length != 0) {
                 res.json({ products: products, response: true });
-            }
-            else{
-                res.json({message:'There is no product with that name',response:false});
+            } else {
+                res.json({ message: 'There is no product with that name', response: false });
             }
         });
 
@@ -43,17 +45,16 @@ fs.readFile('./products.json', 'utf8', (err, data) => {
             let searchingId = req.params.id;
             let searchingItem = products.find((item) => item.id == searchingId);
             if (searchingItem) {
-                res.json({products: searchingItem, response: true });
+                res.json({ products: searchingItem, response: true });
             } else {
                 res.json({ message: 'There is no item with this id', response: false });
             }
         });
 
         app.get('/products/categories/', (req, res) => {
-            let categories=["men's clothing","electronics", "women's clothing", "jewelry"];
-            res.json({categories:categories,response:true});
+            let categories = ["men's clothing", "electronics", "women's clothing", "jewelry"];
+            res.json({ categories: categories, response: true });
         });
-
 
         app.get('/products/category/:category', (req, res) => {
             let products = JSON.parse(data);
@@ -67,10 +68,10 @@ fs.readFile('./products.json', 'utf8', (err, data) => {
 
             const categoryProducts = products.filter((item) => item.category == searchingCategory);
             const paginatedCategoryProducts = categoryProducts.slice(offset, offset + limit);
-            res.json({products:paginatedCategoryProducts,response:true});
+            res.json({ products: paginatedCategoryProducts, response: true });
         });
 
-        app.get('/products/bestsellers',(req,res)=>{
+        app.get('/products/bestsellers', (req, res) => {
             let products = JSON.parse(data);
             let { limit, offset } = req.query;
             limit = parseInt(limit);
@@ -79,10 +80,10 @@ fs.readFile('./products.json', 'utf8', (err, data) => {
             limit = limit ? limit : products.length;
             offset = offset ? offset : 0;
 
-            const bestsellerProducts = products.filter((item) => item.bestSeller===true);
+            const bestsellerProducts = products.filter((item) => item.bestSeller === true);
             const paginatedCategoryProducts = bestsellerProducts.slice(offset, offset + limit);
-            res.json({products:paginatedCategoryProducts,response:true});
-        })
+            res.json({ products: paginatedCategoryProducts, response: true });
+        });
     }
 });
 
@@ -91,3 +92,4 @@ app.listen(HOST, (err) => {
         console.log('localhost:', HOST);
     }
 });
+
